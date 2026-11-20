@@ -2,6 +2,62 @@
 
 Newest first. One entry per decision taken at a stop point.
 
+## 2026-11-20: Checks C1–C15 adopted
+**Canvas block:** 8
+**Decision:** All 15 proposed checks are kept (list in block 8) and will be implemented as pytest tests in `checks/`.
+**Reason:** Each guards a fact that later steps rely on (keys, row counts, split, leakage-safe filling, data decisions D1–D7, baseline).
+**Alternatives considered:** A subset of the checks.
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D7 Holiday sources, both checked for consistency
+**Canvas block:** 7
+**Decision:** Public holidays from the `holidays` package (Germany, SH); school holidays as a CSV in the repo built from the official SH dates. Both get consistency checks.
+**Reason:** Public holidays are needed for Q2d; school holidays are not in any given file. The package result matches the closed days in the sales data (see the fact sheet).
+**Alternatives considered:** Only one of the two; inferring holidays from closed days (misses open public holidays and school holidays).
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D6 Encodings
+**Canvas block:** 7
+**Decision:** Weekday (Mon–Sun), month and product group as one-hot categories; temperature, wind and cloud cover as numbers.
+**Reason:** Linear regression needs categories as 0/1 columns; weekday order follows the team convention.
+**Alternatives considered:** Weekday/month as plain numbers 1–7 / 1–12 (implies a false linear order).
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D5 Wettercode reduced to a precipitation flag
+**Canvas block:** 7
+**Decision:** `Wettercode` 50–99 → precipitation = 1; all other codes and missing → 0.
+**Reason:** A missing code most likely means "nothing notable" (missing days are clearer and warmer); a single flag is robust. The changing reporting practice (missing share 39 % → 11 %) remains a limit.
+**Alternatives considered:** Several weather categories (sparse); dropping `Wettercode` (loses rain information).
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D4 Missing weather filled with training-period monthly averages
+**Canvas block:** 7
+**Decision:** Missing weather days (3 in the sales period, 13 in the test year) and the 10 missing `Bewoelkung` values get the average of that month, computed on training data only.
+**Reason:** Leakage-safe; the test year needs a value for every day.
+**Alternatives considered:** Interpolation from neighbouring days (uses the next day's weather); dropping rows (impossible for test days).
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D3 Missing confectionery rows stay missing
+**Canvas block:** 7
+**Decision:** The 53 open days without a group-4 row are not filled; they are no forecast target.
+**Reason:** Unclear whether "no row" means nothing sold or not recorded; zeros would break MAPE; the validation year has no gaps.
+**Alternatives considered:** Fill with 0.
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D2 Exclude 2014-05-05 from training
+**Canvas block:** 7
+**Decision:** All rows of 2014-05-05 are removed from the training data.
+**Reason:** Outlier analysis: the only day on which all five regular groups are 2.8–4.1 × normal, right after closures on 1, 3 and 4 May; other post-closure days reach at most 1.9 ×. Most likely booked weekend turnover or a one-off event.
+**Alternatives considered:** Keep it (would pull estimates towards an unrepeatable day); flag it (no future use).
+**Decided by:** Team 15 (explore-data session)
+
+## 2026-11-20: D1 Flags for New Year's Eve and Christmas Eve
+**Canvas block:** 7
+**Decision:** Add 0/1 flags for 31 Dec and 24 Dec.
+**Reason:** 31 Dec cake turnover is 5–7 × a normal day in all 5 years; neither day is a public holiday; both are known in advance.
+**Alternatives considered:** Remove 31 Dec as an outlier (the test year contains it); do nothing.
+**Decided by:** Team 15 (explore-data session)
+
 ## 2026-11-20: Main model uses no sales history; observed weather stands in for the forecast
 **Canvas block:** 6
 **Decision:** Main model features: calendar, holidays, Kiel Week, weather of the forecast day (observed, as stand-in for the forecast). Sales-history features only in a separate experiment on the validation year. New data sources allowed if known the evening before.
