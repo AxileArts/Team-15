@@ -13,7 +13,7 @@ Jasper - navigator and ideas
 - Sales, weather and Kiel Week data: see the [dataset documentation](https://github.com/opencampus-sh/intro-to-data-science-and-ml/blob/main/data/bakery/README.md). Load the files from `https://raw.githubusercontent.com/opencampus-sh/intro-to-data-science-and-ml/main/data/bakery/`.
 - Additional data sources:
   - Public holidays Schleswig-Holstein: Python package [`holidays`](https://pypi.org/project/holidays/) (`holidays.Germany(subdiv="SH")`) → public-holiday flag and holiday name.
-  - School holidays Schleswig-Holstein 2013–2019: CSV in the repo (to be built; source link to be added) → school-holiday flag.
+  - School holidays Schleswig-Holstein 2013–2019: `data/school_holidays_sh.csv`, from the [KMK holiday archive](https://www.kmk.org/service/ferien/archiv-der-ferientermine.html) (one PDF per school year, linked per row), cross-checked with schulferien.org → school-holiday flag.
 
 ## Conventions
 

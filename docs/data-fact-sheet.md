@@ -80,3 +80,12 @@ Neither join changes the row count (weather and Kiel Week dates are unique).
 - 2017-10-31 (Reformation Day, a one-off holiday in 2017) is in the package and was a closed day: consistent.
 - **12 closed days are not public holidays** (unplanned closures): 2013-12-28, 2014-05-03, 2014-05-04, 2014-08-17, 2016-03-24, 2016-07-07, 2016-07-18, 2016-08-14, 2016-08-15, 2016-12-17, 2017-07-04, 2017-10-23.
 - School holidays: not checked yet (CSV still to be built).
+
+## School holidays – `data/school_holidays_sh.csv` (added 2026-11-20)
+
+- **Content:** 36 holiday periods in Schleswig-Holstein from Christmas 2012/13 to Christmas 2019/20; columns `name, start, end, school_year, source`; `start` and `end` are the first and last holiday day (inclusive), as stated by the source.
+- **Source:** KMK (Kultusministerkonferenz) "Ferien im Schuljahr …" PDFs, one per school year, linked in the `source` column (archive: https://www.kmk.org/service/ferien/archiv-der-ferientermine.html). The PDFs were published in advance ("Stand" between 20.11.2012 and 11.07.2018) and reserve later changes.
+- **Cross-check:** all 36 periods agree with https://www.schulferien.org/deutschland/ferien/2012/ … /2019/ (independent aggregator). No disagreements.
+- **Not included:** "bewegliche Ferientage" (1–3 movable days per school year, chosen by each school, so not the same for all schools); special rules for Sylt, Föhr, Amrum, Helgoland and the Halligen (Kiel is on the mainland). No SH winter holidays in this period.
+- **Pfingstferien** are a single day each year: the Friday after Ascension Day (bridge day).
+- **Consistency with public holidays (check C14):** in 2013–2018 Good Friday and Easter Monday lie inside the Easter holidays and 25/26 Dec inside the Christmas holidays. **Exception 2019** (test year): Easter holidays end Thu 18 Apr; Good Friday 19 Apr, the weekend and Easter Monday 22 Apr are outside the official period although no school takes place.

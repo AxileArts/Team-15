@@ -2,6 +2,20 @@
 
 Newest first. One entry per decision taken at a stop point.
 
+## 2026-11-20: D8 School-holiday flag includes attached weekends and public holidays
+**Canvas block:** 7
+**Decision:** When building the school-holiday flag, each official period from `data/school_holidays_sh.csv` is extended over weekends and public holidays directly before or after it. The CSV itself keeps the official dates.
+**Reason:** For the bakery, what matters is whether families are away, not whether school is officially closed; e.g. 19–22 Apr 2019 lie between the official Easter holidays and the next school day.
+**Alternatives considered:** Official dates only (marks a weekend inside the Easter break as a normal weekend).
+**Decided by:** Team 15 (data preparation session)
+
+## 2026-11-20: School holiday CSV from KMK; check C14 refined
+**Canvas block:** 7, 8
+**Decision:** `data/school_holidays_sh.csv` holds the 36 SH holiday periods (Christmas 2012/13 – Christmas 2019/20) from the KMK PDFs, cross-checked with schulferien.org (all agree). Movable school days and island rules are excluded. C14 accepts public holidays directly attached to a holiday period, and allows the edge periods to reach into Dec 2012 / Jan 2020.
+**Reason:** KMK is the official collection of the states' dates; a second independent source agrees. In 2019 the Easter holidays end the day before Good Friday, so "Good Friday inside the Easter holidays" is too strict; the dates themselves are correct.
+**Alternatives considered:** Aggregator only (not official); a strict C14 (would flag a correct date as an error).
+**Decided by:** Team 15 (data preparation session)
+
 ## 2026-11-20: Checks C1–C15 adopted
 **Canvas block:** 8
 **Decision:** All 15 proposed checks are kept (list in block 8) and will be implemented as pytest tests in `checks/`.

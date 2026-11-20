@@ -76,6 +76,7 @@ All 2026-11-20, see `DECISIONS.md`.
 - **D5 `Wettercode`:** reduced to a precipitation flag (codes 50–99 = 1; other or missing = 0).
 - **D6 Encodings:** weekday (Mon–Sun), month and product group one-hot; temperature, wind, cloud cover numeric.
 - **D7 Holidays:** public holidays from the `holidays` package (SH); school holidays as a CSV in the repo from the official SH dates. Both are checked for consistency.
+- **D8 School-holiday flag:** each official period is extended over directly attached weekends and public holidays (e.g. 19–22 Apr 2019; the weekend before summer holidays start).
 - **Joins:** left join of weather, Kiel Week and holidays onto sales on `Datum`; Kiel Week / holiday flags missing → 0.
 
 ### 8. Checks 🤖
@@ -85,7 +86,7 @@ Confirmed 2026-11-20, all 15. They are implemented in [`checks/`](checks/) (run 
   - C3 `id` = `YYMMDD` × 10 + group
   - C11 no `Umsatz` = 0; group 4 has 1,766 raw rows
   - C13 every closed day is a public holiday or one of the 12 known unplanned closures; 25/26 Dec, 1 Jan, Good Friday always closed
-  - C14 school-holiday CSV: no overlaps, summer holidays 5–7 weeks every year, dates in 2013–2019
+  - C14 school-holiday CSV: no overlaps, summer holidays 5–7 weeks every year, periods cover 2013–2019 (edge periods may reach into Dec 2012 / Jan 2020), Easter/Christmas holidays contain or directly adjoin Good Friday, Easter Monday, 25/26 Dec; the Pfingsten day is the Friday after Ascension ✅ implemented (`checks/test_school_holidays.py`)
 - **After joins / feature building:**
   - C1 one row per `Datum` + `Warengruppe`
   - C2 row count unchanged by joins
@@ -117,7 +118,6 @@ Confirmed 2026-11-20, all 15. They are implemented in [`checks/`](checks/) (run 
 
 ## Open questions
 <!-- Parking lot. Each item names who resolves it. -->
-- School holiday CSV for Schleswig-Holstein 2013–2019: build it from the official dates, record the link, then run its consistency check. Resolves: team, during data preparation.
 - Use the side findings as features? First open day after a closure (≈ 1.35 × normal), Valentine's effect on confectionery (only until 2016), 29–30 Dec. Resolves: team, during feature engineering.
 - How much worse is over-forecasting (waste) than under-forecasting (e.g. 2×)? Needed before the asymmetric-loss experiment. Resolves: team, before that experiment.
 - Which further data sources (if any) to add? Each must pass block 6. Resolves: team, during data preparation.

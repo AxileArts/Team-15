@@ -27,3 +27,5 @@ One entry per term, variable or code the project uses. Keep the canonical name, 
 | Public-holiday flag | 1 if the day is a public holiday in Schleswig-Holstein (`holidays` package) | 0/1 | The branch is open on some public holidays (Easter Monday, Ascension, Whit Monday, 3 Oct). |
 | Context ratio | Turnover ÷ median turnover of the same group and weekday within ±28 days | ratio (1 = normal) | Used in the outlier analysis; ≥ 2 or ≤ 0.4 = flagged. |
 | Unplanned closure | Closed day that is not a public holiday | – | 12 in the sales period, e.g. 2014-05-03/04. |
+| School-holiday flag | 1 if the day lies in a Schleswig-Holstein school holiday period (`data/school_holidays_sh.csv`), else 0 | 0/1 | Official periods extended over directly attached weekends and public holidays (D8). Pfingstferien = one bridge day. |
+| KMK | Kultusministerkonferenz, the conference of German state education ministers; publishes all states' school holidays | – | Source of the school holiday CSV. |
