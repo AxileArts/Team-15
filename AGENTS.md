@@ -4,7 +4,9 @@ This file tells coding agents (Claude Code, Codex, Cursor, …) what this projec
 
 ## Team
 
-[Names and who is responsible for what, e.g. data preparation, baseline model, neural network, presentation.]
+Julian - Driver, admin
+Niklas - navigator and ideas
+Jasper - navigator and ideas
 
 ## Data
 
