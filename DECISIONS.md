@@ -2,6 +2,13 @@
 
 Newest first. One entry per decision taken at a stop point.
 
+## 2026-11-23: Definitions for hypothesis "summer croissants"
+**Canvas block:** 2, 10
+**Decision:** Hypothesis: in summer the bakery sells more croissants (group 3, measured as revenue `Umsatz`). Summer = meteorological summer, 1 June – 31 August. Comparison: summer days against all other days (September – May); the monthly average revenue is shown in addition to see whether summer differs from spring and autumn or only from winter. "More" = average daily croissant revenue is higher in summer, and the 95 % confidence interval of the difference lies entirely above zero; the size of the difference (EUR and %) is reported as well. Exploratory analysis uses the training period only (2013-07-01 – 2017-07-31), without 2014-05-05 (D2). This analysis is independent of the rain hypothesis.
+**Reason:** The question is whether the model needs a seasonal signal for summer days; the comparison with all other days uses the most data. The monthly view keeps the weakness visible (the rest of the year includes winter and Christmas). Looking at the validation year would make the later validation score optimistic (leakage).
+**Alternatives considered:** Summer against spring and autumn only (fewer days, wider interval); school summer holidays as definition (mixes holiday and season effect).
+**Decided by:** Jasper
+
 ## 2026-11-23: Definitions for hypothesis 1 (rain)
 **Canvas block:** 2, 10
 **Decision:** "Total turnover" = sum of groups 1–5 per day, only days with all five groups. Exploratory analyses use the training period only (2013-07-01 – 2017-07-31).
