@@ -27,7 +27,9 @@
 - **Q2c Kiel Week:** How much does Kiel Week shift turnover? *Limit:* only 5 Kiel Weeks (2014–2018) = 5 independent cases; rough estimate.
 - **Q2d Days around public holidays** (e.g. Christmas Eve, day before Good Friday): *Limit:* about 5 cases per holiday; needs an added holiday calendar.
 - **Seasonal bread (group 6):** Forecast like the other groups, with low confidence stated (about 5 seasons, Oct 2013 – Dec 2017).
-- **Cannot answer (settled):** The data records *sales*, not *demand*. On days a product sold out, true demand was higher, and there is no data on sell-outs or leftovers. We forecast sales and name this as a limit.
+- **Cannot answer (settled):** The data records *sales*, not *demand*. On days a product sold out, true demand was higher, and there is no data on sell-outs or leftovers. We forecast sales and name this as a limit.  
+- Three hypotheses: 1. Total turnover rate goes down on rainy days. 2. [placeholder] 3.[placeholder]
+
 
 ### 3. Audiences 👤
 <!-- Who receives which result, in which form? At least: the decision-maker and the technical reader. -->
@@ -110,6 +112,7 @@ Confirmed 2026-11-20, all 15. They are implemented in [`checks/`](checks/) (run 
 
 ### 10. Findings 🤖
 <!-- What we learned, how sure we are, and what the data cannot tell. -->
+- **Hypothesis 1 (rain), draft, to be approved by the team:** not supported as a planning-relevant effect. Naive: rainy days −4.3 % total turnover (groups 1–5); within the same month, weekday and year only −1.7 % (95 % CI −3.8 % to +0.4 %). Most of the naive gap comes from rain being more frequent in low-turnover winter months. Training period only. Details: [`1_DatasetCharacteristics/julian-rainy.ipynb`](1_DatasetCharacteristics/julian-rainy.ipynb).
 
 ### 11. Recommendation 👤
 <!-- What the decision-maker should do, under which conditions. Signed off by the team. -->

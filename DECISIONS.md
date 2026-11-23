@@ -2,6 +2,13 @@
 
 Newest first. One entry per decision taken at a stop point.
 
+## 2026-11-23: Definitions for hypothesis 1 (rain)
+**Canvas block:** 2, 10
+**Decision:** "Total turnover" = sum of groups 1–5 per day, only days with all five groups. Exploratory analyses use the training period only (2013-07-01 – 2017-07-31).
+**Reason:** Seasonal bread and the confectionery gaps would make the total jump for reasons unrelated to rain. Looking at the validation year while choosing features would make the later validation score optimistic (leakage).
+**Alternatives considered:** Sum of all groups that sold; per-group analysis only; all data including the validation year.
+**Decided by:** Julian
+
 ## 2026-11-20: D8 School-holiday flag includes attached weekends and public holidays
 **Canvas block:** 7
 **Decision:** When building the school-holiday flag, each official period from `data/school_holidays_sh.csv` is extended over weekends and public holidays directly before or after it. The CSV itself keeps the official dates.
