@@ -7,6 +7,7 @@ This file tells coding agents (Claude Code, Codex, Cursor, …) what this projec
 Julian - Driver, admin
 Niklas - navigator and ideas
 Jasper - navigator and ideas
+Mai-Ann - navigator and ideas
 
 ## Data
 

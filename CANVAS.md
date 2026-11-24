@@ -1,7 +1,7 @@
 # Agentic Data Science Canvas
 
 **Project:** Team 15: Bakery Sales Prediction
-**Team:** Julian, Niklas, Jasper
+**Team:** Julian, Niklas, Jasper, Mai-Ann
 **Version:** 2026-11-17
 
 > Owners: 👤 human decides · 🤖 agent drafts, human approves.
